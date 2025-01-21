@@ -76,3 +76,41 @@ This project is applicable across various domains:
 - **Natural Language Processing (NLP)**: Question answering, summarization, sentiment analysis.
 - **AI Ethics**: Quantifying how well AI respects human preferences.
 - **Product Design**: Evaluating competing model versions for deployment.
+
+
+
+
+
+## Getting Started
+
+### Prerequisites
+
+Python 3.8+
+Google Cloud account with Vertex AI and Cloud Storage enabled.
+
+### Installation
+1. Clone the repository:
+``` bash
+git clone https://github.com/your-repo/human-alignment-project.git
+cd human-alignment-project
+```
+
+3. Install dependencies:
+pip install -r requirements.txt
+
+### Running the Pipeline
+Prepare your dataset (evaluation_dataset.json) and upload it to Cloud Storage.
+Use the run_pipeline.py script to start the pipeline:
+python scripts/run_pipeline.py \
+    --project_id your-project-id \
+    --location us-central1 \
+    --context "Context 1" "Context 2" \
+    --questions "Question 1" "Question 2" \
+    --predictions_a "Prediction A1" "Prediction A2" \
+    --predictions_b "Prediction B1" "Prediction B2" \
+    --human_preference "A" "B"
+Monitor the pipeline's progress in the Vertex AI console.
+Fetch results and analyze metrics for human alignment.
+Cleaning Up Resources
+Use the clean_up.py script to remove Cloud Storage buckets and other resources:
+python scripts/clean_up.py --project_id your-project-id --bucket_name your-bucket-name --delete_bucket
