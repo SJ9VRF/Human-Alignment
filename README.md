@@ -34,6 +34,45 @@ The repository provides tools to:
 4. **Flexible Dataset Preparation**:
    - Easily upload JSONL datasets with context, questions, model predictions, and human preferences.
 
-5. **Modular Design**:
-   - Python classes and utility scripts for seamless interaction with Vertex AI components.
-   - Jupyter notebooks for interactive experimentation.
+## Technical Aspects
+
+### Pipeline Definition
+A Vertex AI pipeline is defined in `pipeline.yaml` to preprocess datasets, execute model comparisons, and compute metrics.
+
+### Evaluation Dataset
+The input dataset must follow the JSONL format, containing:
+- `context`: The passage or background information.
+- `questions`: A question requiring an answer.
+- `pred_a`: Prediction from Model A.
+- `pred_b`: Prediction from Model B.
+- `actuals`: Human-preference labels (e.g., "A" or "B").
+
+### Core Functionality
+The `HumanAlignment` class abstracts interactions with Vertex AI and includes methods for:
+- **Dataset Preparation**
+- **Pipeline Execution**
+- **Resource Cleanup**
+
+### AutoSxS Workflow
+The AutoSxS evaluation generates judgments by comparing predictions and calculates alignment metrics, such as:
+- **Preference Win Rate** for each model.
+- **Agreement** between AutoRater and human preferences.
+
+## Scientific Aspects
+
+### Importance of Human Alignment
+AI models that fail to align with human expectations risk:
+- Producing irrelevant or incorrect outputs.
+- Misinterpreting nuanced tasks, especially in sensitive domains (e.g., healthcare, law).
+- Losing user trust due to unpredictable behavior.
+
+By quantitatively comparing model outputs with human preferences, this project contributes to:
+- **Ethical AI Development**: Ensuring AI systems behave as intended.
+- **Better User Experience**: Refining model outputs for real-world applicability.
+- **Robustness and Reliability**: Identifying strengths and weaknesses in model behavior.
+
+## Applications
+This project is applicable across various domains:
+- **Natural Language Processing (NLP)**: Question answering, summarization, sentiment analysis.
+- **AI Ethics**: Quantifying how well AI respects human preferences.
+- **Product Design**: Evaluating competing model versions for deployment.
