@@ -84,9 +84,8 @@ This project is applicable across various domains:
 ## Getting Started
 
 ### Prerequisites
-
-Python 3.8+
-Google Cloud account with Vertex AI and Cloud Storage enabled.
+- Python 3.8+
+- Google Cloud account with Vertex AI and Cloud Storage enabled.
 
 ### Installation
 1. Clone the repository:
