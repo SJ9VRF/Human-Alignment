@@ -96,11 +96,14 @@ cd human-alignment-project
 ```
 
 3. Install dependencies:
+``` bash
 pip install -r requirements.txt
+```
 
 ### Running the Pipeline
-Prepare your dataset (evaluation_dataset.json) and upload it to Cloud Storage.
-Use the run_pipeline.py script to start the pipeline:
+1. Prepare your dataset (evaluation_dataset.json) and upload it to Cloud Storage.
+2. Use the run_pipeline.py script to start the pipeline:
+``` bash
 python scripts/run_pipeline.py \
     --project_id your-project-id \
     --location us-central1 \
@@ -109,8 +112,11 @@ python scripts/run_pipeline.py \
     --predictions_a "Prediction A1" "Prediction A2" \
     --predictions_b "Prediction B1" "Prediction B2" \
     --human_preference "A" "B"
-Monitor the pipeline's progress in the Vertex AI console.
-Fetch results and analyze metrics for human alignment.
-Cleaning Up Resources
+```
+3. Monitor the pipeline's progress in the Vertex AI console.
+4. Fetch results and analyze metrics for human alignment.
+### Cleaning Up Resources
 Use the clean_up.py script to remove Cloud Storage buckets and other resources:
+``` bash
 python scripts/clean_up.py --project_id your-project-id --bucket_name your-bucket-name --delete_bucket
+```
